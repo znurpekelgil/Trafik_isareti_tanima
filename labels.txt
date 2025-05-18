@@ -1,0 +1,57 @@
+Hız sınırı (5km/s)
+Hız sınırı (15km/s)
+Hız sınırı (30km/s)
+Hız sınırı (40km/s)
+Hız sınırı (50km/s)
+Hız sınırı (60km/s)
+Hız sınırı (70km/s)
+Hız sınırı (80km/s)
+Düz veya sola gidemezsin
+Düz veya sağa gidemezsin
+Düz gidemezsin
+Sola Dönüş Yok
+Düz git
+sağa gidemezsin
+Park Yasak
+U dönüşü yok
+Araba Giremez
+Korna Çalınmaz
+
+
+Düz veya sağa git
+Düz git
+Sola gidebilirsin
+Sola veya sağa git
+Sağa gidebilirsin
+Solda kal
+Sağda kal
+Döner kavşak 
+Araba var
+
+Bisiklet geçişi
+U dönüşü
+
+Trafik sinyalleri
+Önde tehlike
+Yaya geçidi
+
+Okul Yolu
+
+
+
+
+
+
+
+
+
+Demiryolu 
+Yol Çalışması Var.
+
+
+
+Dur
+
+Durmak Yasak
+Giriş Yok
+Dikkat

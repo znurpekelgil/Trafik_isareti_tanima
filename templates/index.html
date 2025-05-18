@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Trafik İşareti Tanıma</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+
+        form {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            border: 2px dashed #007BFF;
+            border-radius: 10px;
+            background: #f9f9f9;
+            margin-bottom: 15px;
+            width: 300px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .prediction {
+            margin-top: 20px;
+            font-size: 26px;
+            color: #222;
+            font-weight: bold;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 40px;
+        }
+
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 450px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border: 3px solid #007BFF;
+            border-radius: 10px;
+        }
+
+        .image-container span {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚦 Trafik İşareti Tanıma Sistemi 🚦</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Fotoğrafı Yükle</button>
+    </form>
+
+    {% if prediction %}
+        <div class="prediction">
+            Tahmin: {{ prediction }}
+        </div>
+
+        <div class="images">
+            {% if original_image_filename %}
+            <div class="image-container">
+                <span>Orijinal Fotoğraf</span>
+                <img src="{{ url_for('static', filename='uploads/' + original_image_filename) | safe }}" alt="Orijinal Fotoğraf">
+            </div>
+            {% endif %}
+
+            {% if processed_image_filename %}
+            <div class="image-container">
+                <span>İşlenmiş Fotoğraf</span>
+                <img src="{{ url_for('static', filename='processed/' + processed_image_filename) | safe }}" alt="İşlenmiş Fotoğraf">
+            </div>
+            {% endif %}
+        </div>
+    {% endif %}
+</body>
+</html>
